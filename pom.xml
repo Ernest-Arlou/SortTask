@@ -10,13 +10,18 @@
 
     <properties>
         <javaVersion>11</javaVersion>
-        <mainClassLocation>by.test.ernestarlou.App</mainClassLocation>
+        <mainClassLocation>by.test.ernestarlou.Runner</mainClassLocation>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>${javaVersion}</maven.compiler.source>
         <maven.compiler.target>${javaVersion}</maven.compiler.target>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.14.0</version>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
