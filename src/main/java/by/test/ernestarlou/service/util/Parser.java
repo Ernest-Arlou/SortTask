@@ -18,18 +18,17 @@ public class Parser {
     }
 
     public static List<String> parseRowsToLines(List<String[]> rows) {
-        return rows.stream()
-                .map(x -> {
-                    StringBuilder line = new StringBuilder();
-                    for (int i = 0; i < x.length; i++) {
-                        if (i < (x).length - 1) {
-                            line.append(x[i]).append(TAB_SYMBOL);
-                        } else {
-                            line.append(x[i]);
-                        }
+        return rows.stream().map(x -> {
+            StringBuilder line = new StringBuilder();
+            for (int i = 0; i < x.length; i++) {
+                if (i < (x).length - 1) {
+                    line.append(x[i]).append(TAB_SYMBOL);
+                } else {
+                    line.append(x[i]);
+                }
 
-                    }
-                    return line.toString();
-                }).collect(Collectors.toList());
+            }
+            return line.toString();
+        }).collect(Collectors.toList());
     }
 }

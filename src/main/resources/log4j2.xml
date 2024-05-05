@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" name="SortTask" packages="by.test.ernestarlou">
+    <Appenders>
+        <RollingFile name="RollingFile" fileName="logs/SortTask.log"
+                     filePattern="logs/$${date:yyyy-MM}/SortTask-%d{dd-MM-yyyy}-%i.log">
+            <PatternLayout>
+                <Pattern>%d{dd-MM-yyyy HH:mm:ss} %-5p %c{1} - %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="50 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="error">
+            <AppenderRef ref="RollingFile"/>
+        </Root>
+    </Loggers>
+</Configuration>

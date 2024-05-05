@@ -4,9 +4,9 @@ import org.apache.commons.lang3.math.NumberUtils;
 
 import java.util.Comparator;
 
-public class RowComparator implements Comparator<String []> {
+public class RowComparator implements Comparator<String[]> {
     @Override
-    public int compare(String [] arrayA, String [] arrayB) {
+    public int compare(String[] arrayA, String[] arrayB) {
         int minArrayLength = Integer.min(arrayA.length, arrayB.length);
         int result = 0;
 
@@ -22,15 +22,6 @@ public class RowComparator implements Comparator<String []> {
                     return result;
                 }
             }
-
-//            if (el1IsNumber && el2IsNumber) {
-//                result = Double.compare(Double.parseDouble(array1[i]), Double.parseDouble(array2[i]));
-//                if (result == 0) {
-//                    continue;
-//                } else {
-//                    return result;
-//                }
-//            }
 
             if (!aIsNumber && !bIsNumber) {
                 result = arrayA[i].compareTo(arrayB[i]);
