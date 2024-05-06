@@ -40,9 +40,14 @@ public class TXTFileDAO implements FileDAO {
     public void writeLines(String location, List<String> lines) throws DAOException {
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(location))) {
-            for (String line : lines) {
-                writer.write(line);
-                writer.newLine();
+
+            for (int i = 0; i < lines.size(); i++) {
+                if (i< lines.size()-1){
+                    writer.write(lines.get(i));
+                    writer.newLine();
+                }else {
+                    writer.write(lines.get(i));
+                }
             }
             writer.flush();
         } catch (IOException e) {
