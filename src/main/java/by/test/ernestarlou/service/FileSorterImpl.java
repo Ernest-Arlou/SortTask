@@ -21,6 +21,11 @@ public class FileSorterImpl implements Sorter {
         } catch (DAOException e) {
             throw new ServiceException(e);
         }
+
+        if (lines == null){
+            throw new ServiceException("Null from DAO");
+        }
+
         List<String[]> rows = Parser.parseLinesToRows(lines);
         List<String[]> sortedRows = rows.stream().sorted(new RowComparator()).collect(Collectors.toList());
 

@@ -8,7 +8,8 @@ public class RowComparator implements Comparator<String[]> {
     @Override
     public int compare(String[] arrayA, String[] arrayB) {
         int minArrayLength = Integer.min(arrayA.length, arrayB.length);
-        int result = 0;
+
+        int result;
 
         for (int i = 0; i < minArrayLength; i++) {
             boolean aIsNumber = NumberUtils.isCreatable(arrayA[i]);
@@ -37,6 +38,11 @@ public class RowComparator implements Comparator<String[]> {
             } else {
                 return 1;
             }
+        }
+        if (arrayA.length > arrayB.length){
+            return -1;
+        }if (arrayA.length < arrayB.length) {
+            return 1;
         }
         return 0;
     }
