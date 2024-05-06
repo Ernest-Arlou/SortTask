@@ -7,8 +7,8 @@ import java.util.stream.Collectors;
 
 public class Parser {
 
-    public static final String DIVIDE_BY_TAB_REGEX = "\\t";
-    public static final char TAB_SYMBOL = '\t';
+    private static final String DIVIDE_BY_TAB_REGEX = "\\t";
+    private static final char TAB_SYMBOL = '\t';
 
     public static List<String[]> parseLinesToRows(List<String> lines) {
         return lines.stream()

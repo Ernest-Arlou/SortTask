@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="warn" name="SortTask" packages="by.test.ernestarlou">
+<Configuration status="warn" name="SortTask">
     <Appenders>
         <RollingFile name="RollingFile" fileName="logs/SortTask.log"
                      filePattern="logs/$${date:yyyy-MM}/SortTask-%d{dd-MM-yyyy}-%i.log">

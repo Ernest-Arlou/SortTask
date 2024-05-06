@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class FileSorterImpl implements Sorter {
+    private static final String DAO_NULL_MSG = "Null pointer from DAO";
 
     @Override
     public void sortFiles(String inFileLocation, String outFileLocation) throws ServiceException {
@@ -19,11 +20,11 @@ public class FileSorterImpl implements Sorter {
         try {
             lines = fileDAO.readLines(inFileLocation);
         } catch (DAOException e) {
-            throw new ServiceException(e);
+            throw new ServiceException(e.getMessage());
         }
 
         if (lines == null){
-            throw new ServiceException("Null from DAO");
+            throw new ServiceException(DAO_NULL_MSG);
         }
 
         List<String[]> rows = Parser.parseLinesToRows(lines);
@@ -32,7 +33,7 @@ public class FileSorterImpl implements Sorter {
         try {
             fileDAO.writeLines(outFileLocation, Parser.parseRowsToLines(sortedRows));
         } catch (DAOException e) {
-            throw new ServiceException(e);
+            throw new ServiceException(e.getMessage());
         }
 
     }

@@ -11,8 +11,9 @@ public class TXTFileDAO implements FileDAO {
 
     private static final Logger logger = LoggerFactory.getLogger(TXTFileDAO.class);
 
-    public static final String READ_ERROR_MSG = "read file error";
-    public static final String WRITE_ERROR_MSG = "write file error";
+    private static final String FILE_NOT_FOUND_MSG = "Input file not found";
+    private static final String READ_ERROR_MSG = "File read error";
+    private static final String WRITE_ERROR_MSG = "File write error";
 
     @Override
     public List<String> readLines(String location) throws DAOException {
@@ -23,7 +24,12 @@ public class TXTFileDAO implements FileDAO {
             while (reader.ready()) {
                 collection.add(reader.readLine().strip());
             }
-        } catch (IOException e) {
+        }
+        catch (FileNotFoundException e){
+            logger.error("Input file not found in TXTFileDAO", e);
+            throw new DAOException(FILE_NOT_FOUND_MSG, e);
+        }
+        catch (IOException e) {
             logger.error("Read Error in TXTFileDAO", e);
             throw new DAOException(READ_ERROR_MSG, e);
         }
