@@ -31,11 +31,11 @@ public class TXTFileDAO implements FileDAO {
     }
 
     @Override
-    public void writeLines(String location, List<String> rows) throws DAOException {
+    public void writeLines(String location, List<String> lines) throws DAOException {
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(location))) {
-            for (String row : rows) {
-                writer.write(row);
+            for (String line : lines) {
+                writer.write(line);
                 writer.newLine();
             }
             writer.flush();

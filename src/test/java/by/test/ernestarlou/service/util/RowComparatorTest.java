@@ -12,30 +12,30 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 public class RowComparatorTest extends TestCase {
 
 
-    public static final String[] A = {"90", "80", "1"};
-    public static final String[] B = {"90", "80", "abc"};
-    public static final String[] C = {"90", "80", "bbb"};
-    public static final String[] D = {"100", "80", "60"};
-    public static final String[] E = {"100", "80"};
+    private static final String[] ROW_A = {"90", "80", "1"};
+    private static final String[] ROW_B = {"90", "80", "abc"};
+    private static final String[] ROW_C = {"90", "80", "bbb"};
+    private static final String[] ROW_D = {"100", "80", "60"};
+    private static final String[] ROW_E = {"100", "80"};
 
     @Test
-    public void testSort() {
+    public void testCompare() {
         List<String[]> unsortedRows = new ArrayList<>();
 
-        unsortedRows.add(E);
-        unsortedRows.add(D);
-        unsortedRows.add(C);
-        unsortedRows.add(A);
-        unsortedRows.add(B);
+        unsortedRows.add(ROW_E);
+        unsortedRows.add(ROW_D);
+        unsortedRows.add(ROW_C);
+        unsortedRows.add(ROW_A);
+        unsortedRows.add(ROW_B);
 
 
         List<String[]> actual = unsortedRows.stream().sorted(new RowComparator()).collect(Collectors.toList());
         List<String[]> expected = new ArrayList<>();
-        expected.add(A);
-        expected.add(B);
-        expected.add(C);
-        expected.add(D);
-        expected.add(E);
+        expected.add(ROW_A);
+        expected.add(ROW_B);
+        expected.add(ROW_C);
+        expected.add(ROW_D);
+        expected.add(ROW_E);
 
         assertEquals(expected.size(), actual.size());
 
