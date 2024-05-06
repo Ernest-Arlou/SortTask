@@ -20,5 +20,23 @@ maven-проект консольного приложения, который �
 2.	В папку с SortTask-1.0-SNAPSHOT.jar будет скопирован in.txt 
 3.	Полученный jar файл будет запущен при помощи команды java -jar SortTask-1.0-SNAPSHOT.jar
 4.	Проверка содержимого out.txt.
+--------------------------------------------------------------------------
 
+Task 
+Create a java application that will read data from a source (in.txt file) and sort it. The data has a tabular structure. Lines are separated by line breaks. Columns are marked with tabs.
+
+The data must be sorted and output to the out.txt file.
+
+Sorting is done first by the first column of rows, then by the second (if the rows or numbers in the first column match), etc. Data related to one row in the grid must also be in one row.
+
+In this case: any number in the column is higher than any non-number, numbers are sorted in ascending order, rows are in lexicographical order.
+
+Result: a maven project of a console application that allows you to get a runnable .jar file. Java version 11 must be used.
+
+How will your program be verified?
+
+1.	Build using mvn package command
+2.	Сin.txt will be copied to the folder with SortTask-1.0-SNAPSHOT.jar
+3.	СThe resulting jar file will be launched using the command java -jar SortTask-1.0-SNAPSHOT.jar
+4.	СChecking the contents of out.txt.
 
